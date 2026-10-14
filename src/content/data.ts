@@ -151,8 +151,8 @@ export const projects: Project[] = [
         "The project uses React, TypeScript and Three.js for 3D visuals and interactive animation, with a black-and-green palette and a visual style built around the PMML brand.",
       ],
     },
-    live: "https://github.com/xushgap/pmml-landing",
-    liveLabel: { uz: "GitHub reposini ochish", en: "View GitHub repository" } as L,
+    live: "https://pmml-chatbot.vercel.app",
+    liveLabel: { uz: "Saytni ochish", en: "Live demo" } as L,
   },
   {
     slug: "silmugym",
