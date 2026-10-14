@@ -133,6 +133,28 @@ export const projects: Project[] = [
     liveLabel: { uz: "Telegramda ochish", en: "Open in Telegram" } as L,
   },
   {
+    slug: "pmml-landing",
+    name: "PMML Landing Page",
+    year: "2026",
+    stack: ["React", "TypeScript", "Vite", "Three.js", "3D Animation"],
+    summary: {
+      uz: "PMML suhbatdosh bot uchun 3D animatsiyali landing page",
+      en: "A 3D animated landing page for the PMML chat companion",
+    },
+    body: {
+      uz: [
+        "PMML Telegram botini tanishtirish uchun yaratilgan alohida landing page. Maqsad botning suhbatdosh sifatidagi xarakterini zamonaviy, esda qoladigan vizual tajriba orqali ko‘rsatish.",
+        "Loyihada React, TypeScript va Three.js asosidagi 3D vizuallar hamda interaktiv animatsiyalar ishlatiladi. Dizayn qora va yashil ranglar, silliq harakatlar va PMML brendiga mos uslubga tayangan.",
+      ],
+      en: [
+        "A dedicated landing page introducing PMML, a Telegram chat companion. The goal is to express the bot's conversational personality through a modern, memorable visual experience.",
+        "The project uses React, TypeScript and Three.js for 3D visuals and interactive animation, with a black-and-green palette and a visual style built around the PMML brand.",
+      ],
+    },
+    live: "https://github.com/xushgap/pmml-landing",
+    liveLabel: { uz: "GitHub reposini ochish", en: "View GitHub repository" } as L,
+  },
+  {
     slug: "silmugym",
     name: "SilmuGym",
     year: "2026",
