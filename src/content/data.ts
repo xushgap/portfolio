@@ -173,7 +173,7 @@ export const projects: Project[] = [
         "The project focuses on an accessible interface, bot configuration workflows and cloud-based infrastructure.",
       ],
     },
-    live: "https://botforge.vercel.app/",
+    live: "https://botforge-creator.vercel.app/",
     liveLabel: { uz: "Saytni ochish", en: "Live demo" } as L,
   },
 ];
