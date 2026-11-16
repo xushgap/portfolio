@@ -155,26 +155,26 @@ export const projects: Project[] = [
     liveLabel: { uz: "Saytni ochish", en: "Live demo" } as L,
   },
   {
-    slug: "silmugym",
-    name: "SilmuGym",
+    slug: "botforge",
+    name: "BotForge",
     year: "2026",
-    stack: ["Web Development", "Landing Page", "Responsive UI"],
+    stack: ["SaaS", "Web Development", "Telegram Bots", "Supabase", "Vercel"],
     summary: {
-      uz: "Intizom va kuchga yo‘naltirilgan zamonaviy zal landing page’i",
-      en: "A modern gym landing page built around discipline and strength",
+      uz: "Telegram botlarini yaratish va boshqarish uchun SaaS platforma",
+      en: "A SaaS platform for creating and managing Telegram bots",
     },
     body: {
       uz: [
-        "SilmuGym uchun yaratilgan premium landing page: kuch mashg‘ulotlari, guruh energiyasi va shaxsiy progressni bitta aniq hikoyaga birlashtiradi.",
-        "Sahifada hero blok, zal yondashuvi, imkoniyatlar, BMI kalkulyatori, haftalik jadval, a’zolik rejalari va aloqa CTA’lari mavjud.",
+        "BotForge — Telegram botlarini yaratish va boshqarishni qulaylashtirishga qaratilgan web platforma.",
+        "Loyiha sodda va tushunarli interfeys, botlarni sozlash jarayoni hamda bulutli infratuzilmaga e'tibor qaratadi.",
       ],
       en: [
-        "A premium landing page for SilmuGym that brings strength training, group energy and personal progress into one focused story.",
-        "The page includes a hero section, gym approach, facilities, BMI calculator, weekly schedule, membership plans and contact CTAs.",
+        "BotForge is a web platform designed to simplify creating and managing Telegram bots.",
+        "The project focuses on an accessible interface, bot configuration workflows and cloud-based infrastructure.",
       ],
     },
-    live: "https://silmugym.vercel.app/",
-    liveLabel: { uz: "Demo ko‘rinishini ochish", en: "Open live demo" } as L,
+    live: "https://botforge.vercel.app/",
+    liveLabel: { uz: "Saytni ochish", en: "Live demo" } as L,
   },
 ];
 
