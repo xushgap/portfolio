@@ -45,6 +45,12 @@ function About() {
         ))}
       </ul>
 
+      <section className="rounded-xl border border-slate-200 bg-white p-5">
+        <h2 className="text-[15px] font-semibold text-slate-900">Curriculum Vitae</h2>
+        <p className="mt-1 text-[13px] text-slate-500">{lang === "uz" ? "CV ni brauzerda ko'ring yoki PDF sifatida saqlang." : "View my CV online or save it as a PDF."}</p>
+        <a href="/cv" target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-lg bg-slate-900 px-4 py-2 text-[13px] font-medium text-white hover:bg-slate-700">{lang === "uz" ? "CV ni ochish / PDF saqlash" : "View CV / Save PDF"} →</a>
+      </section>
+
       {/* contact lives at the bottom of the bio */}
       <section id="contact" className="space-y-3 rounded-xl bg-slate-50 p-5">
         <h2 className="text-[15px] font-semibold text-slate-900">{ui.contact[lang]}</h2>
