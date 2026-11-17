@@ -67,6 +67,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "nextgen-english",
+    name: "NextGen English",
+    year: "2026",
+    stack: ["Web App", "JavaScript", "Supabase", "PostgreSQL", "Google OAuth", "Vercel"],
+    summary: {
+      uz: "Ingliz tilini o‘rganish va o‘quv guruhlarini boshqarish uchun interaktiv platforma",
+      en: "An interactive platform for learning English and managing study groups",
+    },
+    body: {
+      uz: [
+        "NextGen English — o‘quvchilar va o‘qituvchilar uchun yaratilgan ingliz tili web platformasi. Guruh bo‘yicha ro‘yxatdan o‘tish, davomat, vazifalar, baholash, reyting va support yozishmalari mavjud.",
+        "Platformada 4000 Essential English Words bo‘yicha kitob va Unitlarga ajratilgan lug‘at, irregular verbs, testlar hamda telefonga moslashtirilgan Word Runner o‘yini bor. Interfeys telefon va kompyuter uchun moslashuvchan, ma’lumotlar Supabase’da saqlanadi.",
+      ],
+      en: [
+        "NextGen English is a web platform for English learners and teachers. It brings together group-based registration, attendance, assignments, grading, rankings and support messages.",
+        "It includes book- and unit-based vocabulary practice for the 4000 Essential English Words series, irregular verbs, quizzes and a mobile-friendly Word Runner game. The responsive interface connects to Supabase for data storage.",
+      ],
+    },
+    live: "https://nextgen-english.vercel.app",
+    liveLabel: { uz: "Saytni ochish", en: "Live demo" } as L,
+  },
+  {
     slug: "uzbecards",
     name: "UzbeCards",
     year: "2026",
