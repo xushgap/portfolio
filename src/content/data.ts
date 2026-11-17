@@ -67,6 +67,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "uzbecards",
+    name: "UzbeCards",
+    year: "2026",
+    stack: ["Telegram Mini App", "Card Game", "Multiplayer", "Web Development"],
+    summary: {
+      uz: "Do'stlar va boshqa o'yinchilar bilan karta o'ynash uchun Telegram Mini App",
+      en: "A Telegram Mini App for playing cards with friends and online players",
+    },
+    body: {
+      uz: [
+        "UzbeCards — Telegram ichida ishlaydigan karta o'yini. Unda do'stlar bilan o'ynash va onlayn raqib qidirish imkoniyatlari mavjud.",
+        "Loyihada o'yinchilar reytingi, profil, karta skinlari va onlayn raqib topilmasa boshqa o'yin rejimini tanlash kabi funksiyalar ko'zda tutilgan.",
+      ],
+      en: [
+        "UzbeCards is a card game built as a Telegram Mini App, with modes for playing with friends and finding online opponents.",
+        "The project includes player profiles, rankings, card skins and alternative play modes when no online opponent is found.",
+      ],
+    },
+    live: "https://t.me/UzbeCards_Bot",
+    liveLabel: { uz: "Telegramda ochish", en: "Open in Telegram" } as L,
+  },
+  {
     slug: "uzbek-cuisine",
     name: "Uzbek Cuisine",
     year: "2026",
