@@ -45,6 +45,7 @@ export default function SeoContent() {
               <p key={i}>{t}</p>
             ))}
             {p.live && <a href={p.live}>{p.name}</a>}
+            {p.telegram && <a href={p.telegram}>{p.name} Telegram bot</a>}
           </article>
         ))}
       </section>

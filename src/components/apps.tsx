@@ -138,7 +138,7 @@ function ProjectView({ slug }: { slug: string }) {
       </div>
 
       {p.live && (
-        <div className="pt-1">
+        <div className="flex flex-wrap gap-2 pt-1">
           <a
             href={p.live}
             target="_blank"
@@ -147,6 +147,11 @@ function ProjectView({ slug }: { slug: string }) {
           >
             {(p.liveLabel ?? { uz: "Ochish", en: "Open" })[lang]} →
           </a>
+          {p.telegram && (
+            <a href={p.telegram} target="_blank" rel="noreferrer" className="inline-block rounded-lg border border-slate-300 px-4 py-2 text-[13px] font-medium hover:bg-slate-100">
+              {lang === "uz" ? "Telegram botni ochish" : "Open Telegram bot"} →
+            </a>
+          )}
         </div>
       )}
     </article>

@@ -63,9 +63,27 @@ export type Project = {
   body: Record<Lang, string[]>;
   live?: string;
   liveLabel?: L;
+  telegram?: string;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "foodradar-ai",
+    name: "FoodRadar AI",
+    year: "2026",
+    stack: ["Next.js", "Supabase", "Groq", "Telegram Bot API"],
+    summary: {
+      uz: "O‘zbekistonda fastfud va kombo narxlarini sayt yoki Telegram orqali solishtiring.",
+      en: "Compare fast food and combo prices across Uzbekistan on the web or Telegram.",
+    },
+    body: {
+      uz: ["Shahar va byudjetingizni yozing. FoodRadar AI restoran menyularidan mos taomlarni narxi va manbasi bilan topadi. Katalogda mos taom bo‘lmasa, internetdan menyu qidiradi."],
+      en: ["Enter your city and budget to find dishes with prices and menu sources. When the catalog has no match, FoodRadar AI searches for menus on the web."],
+    },
+    live: "https://foodradar-ai-uz.vercel.app/",
+    liveLabel: { uz: "Saytni ochish", en: "Open website" },
+    telegram: "https://t.me/FoodRadar_AiBot",
+  },
   {
     slug: "nextgen-english",
     name: "NextGen English",
