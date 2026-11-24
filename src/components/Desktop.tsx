@@ -159,7 +159,7 @@ function WallpaperPicker({ dark }: { dark: boolean }) {
       {open && (
         <>
           <div className="fixed inset-0 z-[1000]" onClick={() => setOpen(false)} />
-          <div className="theme-surface absolute right-0 top-7 z-[1001] w-[230px] max-h-[70vh] overflow-y-auto rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-xl">
+          <div className="theme-surface absolute right-0 top-7 z-[1001] w-[230px] max-h-[70vh] overflow-y-auto rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-sm">
             {wallpapers.map((w) => (
               <button
                 key={w.id}
@@ -172,11 +172,11 @@ function WallpaperPicker({ dark }: { dark: boolean }) {
                 }`}
               >
                 <span
-                  className="h-9 w-14 shrink-0 rounded-md border border-black/10"
+                  className="h-8 w-12 shrink-0 rounded-md border border-black/10"
                   style={{ background: w.swatch }}
                 />
                 <span className="flex-1">{w.name[lang]}</span>
-                {current === w.id && <span className="text-[11px] text-slate-400">✓</span>}
+                {getWallpaper(current).id === w.id && <span className="text-[11px] text-slate-400">✓</span>}
               </button>
             ))}
             <div className="mt-1 border-t border-slate-200 pt-1">
@@ -213,18 +213,11 @@ export default function Desktop() {
 
   return (
     <div className={`relative h-[100dvh] w-full overflow-hidden ${dark ? "bg-[#0f1115]" : "bg-[#e8e5e0]"}`}>
-      <motion.div
-        key={wp.id}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.45 }}
-        className="absolute inset-0"
-        style={{ background: wp.css }}
-      />
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{ background: wp.css }} />
 
       {/* menu bar */}
       <header
-        className={`relative z-[999] flex items-center gap-4 border-b px-4 py-1.5 backdrop-blur-md ${
+        className={`relative z-[999] flex items-center gap-4 border-b px-4 py-1.5 backdrop-blur-sm ${
           dark ? "border-white/10 bg-black/25 text-white" : "border-black/10 bg-white/50 text-slate-900"
         }`}
       >
@@ -267,7 +260,7 @@ export default function Desktop() {
         {/* dock */}
         <div className="absolute bottom-3 left-1/2 z-[900] -translate-x-1/2">
           <div
-            className={`flex items-end gap-1.5 rounded-2xl border px-2.5 py-2 backdrop-blur-xl ${
+            className={`flex items-end gap-1.5 rounded-2xl border px-2.5 py-2 backdrop-blur-sm ${
               dark ? "border-white/15 bg-white/10" : "border-black/10 bg-white/55"
             }`}
           >

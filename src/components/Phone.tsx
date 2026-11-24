@@ -15,7 +15,7 @@ function HomeIcon({ id, onOpen }: { id: AppId; onOpen: () => void }) {
   const lang = useOS((s) => s.lang);
   return (
     <button onClick={onOpen} className="flex flex-col items-center gap-1.5 active:scale-95 transition">
-      <span className="flex h-[62px] w-[62px] items-center justify-center rounded-[16px] border border-white/20 bg-white/15 shadow-lg backdrop-blur-md">
+      <span className="flex h-[62px] w-[62px] items-center justify-center rounded-[16px] border border-white/20 bg-white/15 shadow-lg backdrop-blur-sm">
         <AppIcon id={id} className="h-9 w-9" />
       </span>
       <span className="max-w-[72px] truncate text-[11px] font-medium">{titleFor(id, lang)}</span>
@@ -40,7 +40,7 @@ export default function Phone() {
     <div className={`relative h-[100dvh] w-full overflow-hidden ${dark ? "bg-[#0f1115] text-white" : "bg-[#e8e5e0] text-slate-900"}`}>
       <div
         className="absolute inset-0"
-        style={{ background: wp.css }}
+        style={{ background: wp.mobileCss }}
       />
 
       {/* status bar */}
@@ -68,7 +68,7 @@ export default function Phone() {
         </div>
 
         <div className="mt-auto mb-6 flex justify-center">
-          <div className="flex gap-6 rounded-[24px] border border-white/20 bg-white/15 px-5 py-3 backdrop-blur-xl">
+          <div className="flex gap-6 rounded-[24px] border border-white/20 bg-white/15 px-5 py-3 backdrop-blur-sm">
             {DOCK_APPS.map((id) => (
               <button key={id} onClick={() => open(id)} className="active:scale-95 transition">
                 <AppIcon id={id} className="h-9 w-9" />
