@@ -9,7 +9,7 @@ import { profile, ui } from "@/content/data";
 import { getWallpaper, wallpapers } from "@/content/wallpapers";
 import { Clock, LangSwitch } from "@/components/chrome";
 
-const WIDTH: Partial<Record<string, number>> = { about: 660, projects: 620 };
+const WIDTH: Partial<Record<string, number>> = { about: 660, projects: 620, comments: 540 };
 const widthFor = (id: AppId) => (id.startsWith("project:") ? 600 : WIDTH[id] ?? 560);
 
 /* ---------------- draggable desktop icon ---------------- */

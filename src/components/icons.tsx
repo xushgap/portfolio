@@ -34,7 +34,12 @@ export function MarkdownIcon({ className }: P) {
   );
 }
 
+function CommentIcon({ className }: P) {
+  return <svg viewBox="0 0 48 48" className={className} aria-hidden><path d="M8 7h32a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H22l-10 8v-8H8a4 4 0 0 1-4-4V11a4 4 0 0 1 4-4Z" fill="#d4dce6"/><path d="M13 17h22M13 23h22M13 29h13" stroke="#8796a9" strokeWidth="2.7" strokeLinecap="round"/></svg>;
+}
+
 export function AppIcon({ id, className }: { id: AppId; className?: string }) {
   if (id === "projects") return <FolderIcon className={className} />;
+  if (id === "comments") return <CommentIcon className={className} />;
   return <MarkdownIcon className={className} />;
 }

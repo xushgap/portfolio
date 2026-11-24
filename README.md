@@ -56,6 +56,7 @@ Route avtomatik yaratiladi, sitemap ham o'zi yangilanadi.
 |---|---|
 | `/` | Bo'sh desktop |
 | `/about` | About oynasi |
+| `/comments` | Izohlar (Supabase) |
 | `/projects` | Loyihalar papkasi |
 | `/projects/:slug` | Bitta loyiha |
 

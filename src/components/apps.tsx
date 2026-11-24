@@ -1,5 +1,6 @@
 "use client";
 
+import Comments from "@/components/Comments";
 import { profile, projects, ui } from "@/content/data";
 import type { AppId } from "@/lib/os";
 import { useOS } from "@/lib/os";
@@ -167,6 +168,7 @@ export function titleFor(id: AppId, lang: "uz" | "en"): string {
   }
   if (id === "about") return lang === "uz" ? "Men-haqimda.md" : "About.md";
   if (id === "projects") return lang === "uz" ? "Loyihalar" : "Projects";
+  if (id === "comments") return lang === "uz" ? "Izohlar" : "Comments";
   return id;
 }
 
@@ -174,6 +176,7 @@ export function AppBody({ id }: { id: AppId }) {
   if (id.startsWith("project:")) return <ProjectView slug={id.slice(8)} />;
   if (id === "about") return <About />;
   if (id === "projects") return <ProjectsFolder />;
+  if (id === "comments") return <Comments />;
   return null;
 }
 
