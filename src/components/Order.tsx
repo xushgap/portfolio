@@ -12,8 +12,8 @@ const services = [
   ["other", "Boshqa", "Other"],
 ];
 const field = "mt-1.5 block w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none focus:border-slate-600";
-const endpoint = "https://qhqhkgfdttvhmaizhorr.supabase.co/rest/v1/portfolio_orders";
-const headers = { apikey: "sb_publishable_fB_bMMLw8J-u8Zw2jaf14A_Nd-IYxDO", "Content-Type": "application/json", Prefer: "return=minimal" };
+const endpoint = "/api/orders";
+const headers = { "Content-Type": "application/json" };
 
 export default function Order() {
   const uz = useOS(s => s.lang) === "uz";
