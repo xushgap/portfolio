@@ -30,58 +30,31 @@ export async function telegram(method: string, body: Record<string, unknown>) {
   if (!data.ok) throw new Error("Telegram API error");
   return data.result;
 }
-export const statusLabel = (s: string) => s === "accepted" ? "Qabul qilingan" : s === "rejected" ? "Rad etilgan" : "Yangi";
-const symbols = ["💎","📥","📦","✅","❌","📊","👤","💬","💼","💰","📝","🔗"];
-let cached: {expires:number; icons:Record<string,string>} | undefined;
-let pending: Promise<Record<string,string>> | undefined;
-async function premiumIcons() {
-  if (cached && cached.expires > Date.now()) return cached.icons;
-  if (pending) return pending;
-  pending = (async()=>{
-    const icons:Record<string,string> = {};
-    try {
-      const set=await telegram("getStickerSet",{name:"AnimatedIconsEmoji"});
-      for(const s of set.stickers || []) {
-        const e=String(s.emoji||"").replace(/\uFE0F/g,"");
-        if(symbols.includes(e)&&/^\d+$/.test(String(s.custom_emoji_id))) icons[e]=String(s.custom_emoji_id);
-      }
-    } catch { /* Telegram permission or sticker set unavailable */ }
-    cached={icons,expires:Date.now()+3600000};
-    return icons;
-  })();
-  try {return await pending;} finally {pending=undefined;}
-}
+export const statusLabel = (s: string) => s === "delivered" ? "Topshirildi" : s === "accepted" ? "Qabul qilingan" : s === "rejected" ? "Rad etilgan" : "Yangi";
 const escapeHTML=(s:string)=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 export function orderText(o: Order) {
-  return ["💎  PORTFOLIO / ORDERS","━━━━━━━━━━━━━━━━","📦  #"+o.id.slice(0,8).toUpperCase(),"📥  "+statusLabel(o.status),"","👤  Ism: "+o.name,"💬  Kontakt: "+o.contact,"💼  Xizmat: "+(({website:"Veb-sayt",landing:"Landing page",telegram:"Telegram bot / Mini App",crm:"CRM",saas:"SaaS",ai:"AI integratsiyasi",other:"Boshqa"} as Record<string,string>)[o.service]||o.service),"💰  Budjet: "+(o.budget||"Ko‘rsatilmagan"),"","📝  Loyiha tafsilotlari",o.description,"━━━━━━━━━━━━━━━━"].join("\n");
+  return ["Buyurtma #"+o.id.slice(0,8).toUpperCase(),"Holati: "+statusLabel(o.status),"","Ism: "+o.name,"Kontakt: "+o.contact,"Xizmat: "+(({website:"Veb-sayt",landing:"Landing page",telegram:"Telegram bot / Mini App",crm:"CRM",saas:"SaaS",ai:"AI integratsiyasi",other:"Boshqa"} as Record<string,string>)[o.service]||o.service),"Budjet: "+(o.budget||"Ko‘rsatilmagan"),"","Loyiha tafsilotlari",o.description].join("\n");
 }
-type Button={text:string;callback_data?:string;url?:string;style?:string;icon_custom_emoji_id?:string};
+type Button={text:string;callback_data?:string;url?:string;style?:string};
 export function keyboard(o: Order) {
   const rows:Button[][]=[];
-  if(o.status==="new")rows.push([{text:"✅ Qabul qilish",callback_data:"accept:"+o.id,style:"success"},{text:"❌ Rad etish",callback_data:"reject:"+o.id,style:"danger"}]);
-  if(/^@[A-Za-z0-9_]{5,32}$/.test(o.contact))rows.push([{text:"🔗 Bog‘lanish",url:"https://t.me/"+o.contact.slice(1),style:"primary"}]);
-  rows.push([{text:"📦 Bosh menyu",callback_data:"menu:home"}]);
+  if(o.status==="new")rows.push([{text:"Qabul qilish",callback_data:"accept:"+o.id,style:"success"},{text:"Rad etish",callback_data:"reject:"+o.id,style:"danger"}]);
+  if(o.status==="accepted")rows.push([{text:"Topshirildi",callback_data:"deliver:"+o.id,style:"success"}]);
+  if(/^@[A-Za-z0-9_]{5,32}$/.test(o.contact))rows.push([{text:"Bog‘lanish",url:"https://t.me/"+o.contact.slice(1),style:"primary"}]);
+  rows.push([{text:"Bosh menyu",callback_data:"menu:home"}]);
   return {inline_keyboard:rows};
 }
 export function menuKeyboard(){return {inline_keyboard:[
-  [{text:"📥 Yangi buyurtmalar",callback_data:"menu:new",style:"primary"}],
-  [{text:"📦 Barcha buyurtmalar",callback_data:"menu:orders"}],
-  [{text:"✅ Qabul qilingan",callback_data:"menu:accepted",style:"success"},{text:"❌ Rad etilgan",callback_data:"menu:rejected",style:"danger"}],
-  [{text:"📊 Statistika",callback_data:"menu:stats"},{text:"🔗 Portfolio",url:"https://shoxjahonos.vercel.app"}]
+  [{text:"Yangi buyurtmalar",callback_data:"menu:new",style:"primary"}],
+  [{text:"Barcha buyurtmalar",callback_data:"menu:orders"}],
+  [{text:"Qabul qilingan",callback_data:"menu:accepted",style:"success"},{text:"Rad etilgan",callback_data:"menu:rejected",style:"danger"}],
+  [{text:"Topshirilgan",callback_data:"menu:delivered",style:"success"}],
+  [{text:"Statistika",callback_data:"menu:stats"},{text:"Portfolio",url:"https://shoxjahonos.vercel.app"}]
 ]};}
 export async function richTelegram(method:string,body:Record<string,unknown>) {
-  const icons=await premiumIcons();
   const text=String(body.text||"");
-  const html=text.split("\n").map((line,i)=>{
-    let safe=escapeHTML(line);
-    for(const e of symbols)if(icons[e]&&safe.startsWith(e))safe='<tg-emoji emoji-id="'+icons[e]+'">'+e+'</tg-emoji>'+safe.slice(e.length);
-    return i===0?"<b>"+safe+"</b>":safe;
-  }).join("\n");
-  const markup=body.reply_markup as {inline_keyboard?:Button[][]}|undefined;
-  const enhanced=markup?.inline_keyboard?{inline_keyboard:markup.inline_keyboard.map(row=>row.map(b=>{
-    const e=symbols.find(e=>b.text.startsWith(e));return e&&icons[e]?{...b,text:b.text.slice(e.length).trim(),icon_custom_emoji_id:icons[e]}:b;
-  }))}:markup;
-  try{return await telegram(method,{...body,text:html,parse_mode:"HTML",reply_markup:enhanced});}
+  const html=text.split("\n").map((line,i)=>i===0?"<b>"+escapeHTML(line)+"</b>":escapeHTML(line)).join("\n");
+  try{return await telegram(method,{...body,text:html,parse_mode:"HTML"});}
   catch(e){if(!(e instanceof Error)||!e.message.includes("HTTP 400"))throw e;return telegram(method,body);}
 }
 export async function sendOrder(o: Order) {
