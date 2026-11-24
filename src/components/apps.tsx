@@ -1,5 +1,6 @@
 "use client";
 
+import Order from "@/components/Order";
 import Comments from "@/components/Comments";
 import { profile, projects, ui } from "@/content/data";
 import type { AppId } from "@/lib/os";
@@ -169,6 +170,7 @@ export function titleFor(id: AppId, lang: "uz" | "en"): string {
   if (id === "about") return lang === "uz" ? "Men-haqimda.md" : "About.md";
   if (id === "projects") return lang === "uz" ? "Loyihalar" : "Projects";
   if (id === "comments") return lang === "uz" ? "Izohlar" : "Comments";
+  if (id === "order") return lang === "uz" ? "Buyurtma berish" : "Start a project";
   return id;
 }
 
@@ -177,6 +179,7 @@ export function AppBody({ id }: { id: AppId }) {
   if (id === "about") return <About />;
   if (id === "projects") return <ProjectsFolder />;
   if (id === "comments") return <Comments />;
+  if (id === "order") return <Order />;
   return null;
 }
 

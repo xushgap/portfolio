@@ -38,8 +38,13 @@ function CommentIcon({ className }: P) {
   return <svg viewBox="0 0 48 48" className={className} aria-hidden><path d="M8 7h32a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H22l-10 8v-8H8a4 4 0 0 1-4-4V11a4 4 0 0 1 4-4Z" fill="#d4dce6"/><path d="M13 17h22M13 23h22M13 29h13" stroke="#8796a9" strokeWidth="2.7" strokeLinecap="round"/></svg>;
 }
 
+function OrderIcon({ className }: P) {
+  return <svg viewBox="0 0 48 48" className={className} aria-hidden><rect x="5" y="13" width="38" height="28" rx="5" fill="#c0cbd9"/><path d="M16 13V9a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v4" fill="none" stroke="#8796a9" strokeWidth="3"/><path d="M5 23h38" stroke="#8796a9" strokeWidth="2"/><rect x="20" y="20" width="8" height="7" rx="2" fill="#eef1f5"/></svg>;
+}
+
 export function AppIcon({ id, className }: { id: AppId; className?: string }) {
   if (id === "projects") return <FolderIcon className={className} />;
+  if (id === "order") return <OrderIcon className={className} />;
   if (id === "comments") return <CommentIcon className={className} />;
   return <MarkdownIcon className={className} />;
 }

@@ -8,7 +8,7 @@ import { profile } from "@/content/data";
 import { Clock, LangSwitch } from "@/components/chrome";
 import { getWallpaper, wallpapers } from "@/content/wallpapers";
 
-const HOME_APPS: AppId[] = ["projects", "about", "comments"];
+const HOME_APPS: AppId[] = ["projects", "about", "comments", "order"];
 const DOCK_APPS: AppId[] = ["about", "projects"];
 
 function HomeIcon({ id, onOpen }: { id: AppId; onOpen: () => void }) {

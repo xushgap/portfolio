@@ -6,7 +6,7 @@ import { projects } from "@/content/data";
 import type { Lang } from "@/content/data";
 import { defaultWallpaper } from "@/content/wallpapers";
 
-export type AppId = "about" | "projects" | "comments" | `project:${string}`;
+export type AppId = "about" | "projects" | "comments" | "order" | `project:${string}`;
 
 export type WindowState = {
   id: AppId;
@@ -32,13 +32,13 @@ export function idForRoute(path: string): AppId | null {
   if (parts[0] === "projects" && parts[1]) {
     return projects.some((p) => p.slug === parts[1]) ? (`project:${parts[1]}` as AppId) : null;
   }
-  if (["about", "projects", "comments"].includes(parts[0])) return parts[0] as AppId;
+  if (["about", "projects", "comments", "order"].includes(parts[0])) return parts[0] as AppId;
   return null;
 }
 
 /* ---------- default desktop icon layout ---------- */
 
-export const DESKTOP_ICONS: AppId[] = ["projects", "about", "comments"];
+export const DESKTOP_ICONS: AppId[] = ["projects", "about", "comments", "order"];
 
 export function defaultIconPos(id: AppId): Point {
   const i = Math.max(0, DESKTOP_ICONS.indexOf(id));

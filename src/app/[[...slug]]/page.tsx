@@ -11,6 +11,7 @@ export function generateStaticParams() {
     { slug: ["about"] },
     { slug: ["projects"] },
     { slug: ["comments"] },
+    { slug: ["order"] },
     ...projects.map((p) => ({ slug: ["projects", p.slug] })),
   ];
 }
@@ -23,6 +24,7 @@ export function generateMetadata({ params }: Props): Metadata {
     if (p) return { title: `${p.name} — ${profile.name}`, description: p.summary.uz };
   }
   if (s[0] === "projects") return { title: `Loyihalar — ${profile.name}`, description: "Men ishlagan loyihalar." };
+  if (s[0] === "order") return { title: `Buyurtma berish — ${profile.name}`, description: "Veb-sayt, Telegram bot, CRM va boshqa xizmatlar uchun loyiha so‘rovi." };
   if (s[0] === "comments") return { title: `Izohlar — ${profile.name}`, description: "Portfolio haqida izoh qoldiring." };
   if (s[0] === "about") return { title: `Men haqimda — ${profile.name}`, description: profile.bio.uz[0] };
   return { title: base, description: profile.bio.uz[0] };
