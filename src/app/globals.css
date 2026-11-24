@@ -12,3 +12,46 @@ body {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
 ::-webkit-scrollbar-track { background: transparent; }
+
+/* Theme is independent of the selected macOS wallpaper. */
+.theme-toggle-surface { color: #475569; }
+[data-theme="dark"] .theme-toggle-surface { color: #e2e8f0; }
+[data-theme="dark"] .theme-surface {
+  background: #17191f;
+  color: #e5e7eb;
+  border-color: #363943;
+  color-scheme: dark;
+}
+[data-theme="dark"] .theme-surface :is(.bg-white, .bg-white\/95) { background-color: #20232b; }
+[data-theme="dark"] .theme-surface :is(.bg-slate-50, .bg-slate-50\/90) { background-color: #1d2027; }
+[data-theme="dark"] .theme-surface .bg-slate-100 { background-color: #292d37; }
+[data-theme="dark"] .theme-surface .bg-slate-200 { background-color: #383d49; }
+[data-theme="dark"] .theme-surface .bg-slate-300 { background-color: #636b7c; }
+[data-theme="dark"] .theme-surface .bg-slate-900 { background-color: #e2e8f0; color: #161922; }
+[data-theme="dark"] .theme-surface :is(.text-slate-900,.text-slate-800,.text-slate-700) { color: #edf0f5; }
+[data-theme="dark"] .theme-surface .text-slate-600 { color: #c5cad5; }
+[data-theme="dark"] .theme-surface .text-slate-500 { color: #a7afbf; }
+[data-theme="dark"] .theme-surface .text-slate-400 { color: #929bad; }
+[data-theme="dark"] .theme-surface :is(.border-slate-100,.border-slate-200,.border-slate-300,.border-black\/10) { border-color: #363b47; }
+[data-theme="dark"] .theme-surface .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #343945; }
+[data-theme="dark"] .theme-surface .hover\:bg-slate-50:hover,
+[data-theme="dark"] .theme-surface .hover\:bg-slate-100:hover { background-color: #2c303b; }
+[data-theme="dark"] .theme-surface .hover\:bg-slate-700:hover { background-color: #cbd5e1; }
+[data-theme="dark"] .theme-surface .hover\:border-slate-900:hover { border-color: #8b95a8; }
+[data-theme="dark"] .theme-surface .group:hover .group-hover\:text-slate-900 { color: #fff; }
+[data-theme="dark"] .theme-surface .bg-emerald-50 { background-color: #19382d; }
+[data-theme="dark"] .theme-surface :is(.text-emerald-700,.text-emerald-800) { color: #86efac; }
+[data-theme="dark"] .theme-surface .text-red-700 { color: #fda4af; }
+[data-theme="dark"] .theme-surface :is(input,textarea,select) { color: #edf0f5; background-color: #20232b; }
+[data-theme="dark"] .theme-surface :is(input,textarea)::placeholder { color: #919bad; }
+[data-theme="dark"] .theme-surface ::-webkit-scrollbar-thumb { background-color: #515867; }
+@media screen {
+  .cv-theme[data-theme="dark"] { background: #111318; color: #e2e8f0; color-scheme: dark; }
+  .cv-theme[data-theme="dark"] article { background: #1b1e25; }
+  .cv-theme[data-theme="dark"] article :is(h2,header > p:first-of-type) { color: #f0a5b0; }
+  .cv-theme[data-theme="dark"] header { border-color: #b65a6b; }
+}
+@media print {
+  .cv-theme { color: #25252b !important; color-scheme: light; }
+  .cv-theme article { background: white !important; }
+}

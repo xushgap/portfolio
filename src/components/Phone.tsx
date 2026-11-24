@@ -5,7 +5,7 @@ import { useOS, topWindow, type AppId } from "@/lib/os";
 import { AppBody, titleFor } from "@/components/apps";
 import { AppIcon } from "@/components/icons";
 import { profile } from "@/content/data";
-import { Clock, LangSwitch } from "@/components/chrome";
+import { Clock, LangSwitch, ThemeSwitch } from "@/components/chrome";
 import { getWallpaper, wallpapers } from "@/content/wallpapers";
 
 const HOME_APPS: AppId[] = ["projects", "about", "comments", "order"];
@@ -34,6 +34,7 @@ export default function Phone() {
   const wp = getWallpaper(wpId);
   const dark = wp.dark;
   const top = topWindow(windows);
+  const useDarkText = useOS(s => s.theme) !== "dark";
 
   return (
     <div className={`relative h-[100dvh] w-full overflow-hidden ${dark ? "bg-[#0f1115] text-white" : "bg-[#e8e5e0] text-slate-900"}`}>
@@ -47,6 +48,7 @@ export default function Phone() {
         <Clock light={dark} dark={!dark} />
         <div className="flex items-center gap-2">
           <select aria-label={lang === "uz" ? "Fon" : "Wallpaper"} value={wp.id} onChange={e => setWallpaper(e.target.value)} className="max-w-[100px] rounded-md bg-black/25 px-1 py-1 text-[11px] text-white"><option disabled value="">{lang === "uz" ? "Fon" : "Wallpaper"}</option>{wallpapers.map(w => <option key={w.id} value={w.id} className="bg-slate-900">{w.name[lang]}</option>)}</select>
+          <ThemeSwitch />
           <LangSwitch dark={!dark} />
           <span className={`text-[11px] ${dark ? "text-white/70" : "text-slate-500"}`}>▮▮▮</span>
         </div>
@@ -85,12 +87,13 @@ export default function Phone() {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", stiffness: 380, damping: 38 }}
-            className="absolute inset-0 z-40 flex flex-col rounded-t-[22px] bg-white"
+            className="theme-surface absolute inset-0 z-40 flex flex-col rounded-t-[22px] bg-white"
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
               <span className="text-[14px] font-semibold text-slate-800">{titleFor(top.id, lang)}</span>
               <div className="flex items-center gap-3">
-                <LangSwitch dark />
+                <ThemeSwitch onSurface />
+                <LangSwitch dark={useDarkText} />
                 <button
                   onClick={closeAll}
                   aria-label="close app"

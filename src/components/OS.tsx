@@ -22,6 +22,7 @@ export default function OS() {
   const router = useRouter();
   const pathname = usePathname();
   const isMobile = useIsMobile();
+  const theme = useOS(s => s.theme);
 
   const windows = useOS((s) => s.windows);
   const open = useOS((s) => s.open);
@@ -61,5 +62,5 @@ export default function OS() {
   if (isMobile === null) {
     return <div className="h-[100dvh] w-full bg-[#0f1115]" />;
   }
-  return isMobile ? <Phone /> : <Desktop />;
+  return <div data-theme={theme} className="portfolio-theme">{isMobile ? <Phone /> : <Desktop />}</div>;
 }

@@ -7,7 +7,7 @@ import { AppBody, titleFor } from "@/components/apps";
 import { AppIcon } from "@/components/icons";
 import { profile, ui } from "@/content/data";
 import { getWallpaper, wallpapers } from "@/content/wallpapers";
-import { Clock, LangSwitch } from "@/components/chrome";
+import { Clock, LangSwitch, ThemeSwitch } from "@/components/chrome";
 
 const WIDTH: Partial<Record<string, number>> = { about: 660, projects: 620, comments: 540, order: 570 };
 const widthFor = (id: AppId) => (id.startsWith("project:") ? 600 : WIDTH[id] ?? 560);
@@ -92,7 +92,7 @@ function Window({ w, bounds }: { w: WindowState; bounds: React.RefObject<HTMLDiv
       onPointerDown={() => focus(w.id)}
       onDragEnd={() => move(w.id, x.get(), y.get())}
       aria-label={titleFor(w.id, lang)}
-      className="absolute max-w-[calc(100vw-40px)] overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_24px_70px_-12px_rgba(0,0,0,0.45)]"
+      className="theme-surface absolute max-w-[calc(100vw-40px)] overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_24px_70px_-12px_rgba(0,0,0,0.45)]"
     >
       <div
         onPointerDown={(e) => dragControls.start(e)}
@@ -159,7 +159,7 @@ function WallpaperPicker({ dark }: { dark: boolean }) {
       {open && (
         <>
           <div className="fixed inset-0 z-[1000]" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 top-7 z-[1001] w-[230px] max-h-[70vh] overflow-y-auto rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-xl">
+          <div className="theme-surface absolute right-0 top-7 z-[1001] w-[230px] max-h-[70vh] overflow-y-auto rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-xl">
             {wallpapers.map((w) => (
               <button
                 key={w.id}
@@ -236,6 +236,7 @@ export default function Desktop() {
         </span>
         <div className="ml-auto flex items-center gap-4">
           <WallpaperPicker dark={dark} />
+          <ThemeSwitch />
           <LangSwitch dark={!dark} />
           <Clock light={dark} dark={!dark} />
         </div>

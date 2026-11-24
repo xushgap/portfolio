@@ -52,6 +52,7 @@ type OSState = {
   topZ: number;
   lang: Lang;
   wallpaper: string;
+  theme: "light" | "dark";
   iconPos: Record<string, Point>;
 
   open: (id: AppId) => void;
@@ -64,6 +65,7 @@ type OSState = {
   resetIcons: () => void;
   setLang: (l: Lang) => void;
   setWallpaper: (id: string) => void;
+  setTheme: (theme: "light" | "dark") => void;
 };
 
 function spawnPosition(index: number) {
@@ -78,6 +80,7 @@ export const useOS = create<OSState>()(
       topZ: 10,
       lang: "uz",
       wallpaper: defaultWallpaper,
+      theme: "light",
       iconPos: {},
 
       open: (id) => {
@@ -116,12 +119,13 @@ export const useOS = create<OSState>()(
       setLang: (lang) => set({ lang }),
 
       setWallpaper: (wallpaper) => set({ wallpaper }),
+      setTheme: (theme) => set({ theme }),
     }),
     {
       name: "portfolio-os",
       storage: createJSONStorage(() => localStorage),
       // windows are session state — only preferences are remembered
-      partialize: (s) => ({ lang: s.lang, wallpaper: s.wallpaper, iconPos: s.iconPos }),
+      partialize: (s) => ({ lang: s.lang, wallpaper: s.wallpaper, theme: s.theme, iconPos: s.iconPos }),
     }
   )
 );

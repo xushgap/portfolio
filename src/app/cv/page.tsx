@@ -1,11 +1,15 @@
 "use client";
 
+import { useOS } from "@/lib/os";
+import { ThemeSwitch } from "@/components/chrome";
+
 export default function CVPage() {
+  const theme = useOS(s => s.theme);
   return (
-    <main className="min-h-screen bg-[#e9e9ec] px-4 py-8 text-[#25252b] print:bg-white print:p-0">
+    <main data-theme={theme} className="cv-theme min-h-screen bg-[#e9e9ec] px-4 py-8 text-[#25252b] print:bg-white print:p-0">
       <div className="mx-auto mb-5 flex max-w-[800px] items-center justify-between gap-3 print:hidden">
         <a href="/" className="text-sm font-medium hover:underline">← Portfolio</a>
-        <button onClick={() => window.print()} className="rounded-lg bg-[#831e2b] px-5 py-2.5 text-sm font-semibold text-white">Download / Save as PDF</button>
+        <div className="flex items-center gap-2"><ThemeSwitch onSurface /><button onClick={() => window.print()} className="rounded-lg bg-[#831e2b] px-5 py-2.5 text-sm font-semibold text-white">Download / Save as PDF</button></div>
       </div>
       <article className="mx-auto max-w-[800px] bg-white px-10 py-12 shadow-lg sm:px-14 print:max-w-none print:p-0 print:shadow-none">
         <header className="border-b-2 border-[#831e2b] pb-5">
