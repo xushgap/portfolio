@@ -159,7 +159,7 @@ function WallpaperPicker({ dark }: { dark: boolean }) {
       {open && (
         <>
           <div className="fixed inset-0 z-[1000]" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 top-7 z-[1001] w-[200px] rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-xl">
+          <div className="absolute right-0 top-7 z-[1001] w-[230px] max-h-[70vh] overflow-y-auto rounded-xl border border-black/10 bg-white/95 p-2 shadow-2xl backdrop-blur-xl">
             {wallpapers.map((w) => (
               <button
                 key={w.id}
@@ -168,11 +168,11 @@ function WallpaperPicker({ dark }: { dark: boolean }) {
                   setOpen(false);
                 }}
                 className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-1.5 text-left text-[12.5px] transition hover:bg-slate-100 ${
-                  current === w.id ? "text-slate-900" : "text-slate-600"
+                  getWallpaper(current).id === w.id ? "text-slate-900" : "text-slate-600"
                 }`}
               >
                 <span
-                  className="h-6 w-9 shrink-0 rounded-md border border-black/10"
+                  className="h-9 w-14 shrink-0 rounded-md border border-black/10"
                   style={{ background: w.swatch }}
                 />
                 <span className="flex-1">{w.name[lang]}</span>

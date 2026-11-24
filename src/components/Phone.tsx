@@ -6,7 +6,7 @@ import { AppBody, titleFor } from "@/components/apps";
 import { AppIcon } from "@/components/icons";
 import { profile } from "@/content/data";
 import { Clock, LangSwitch } from "@/components/chrome";
-import { getWallpaper } from "@/content/wallpapers";
+import { getWallpaper, wallpapers } from "@/content/wallpapers";
 
 const HOME_APPS: AppId[] = ["projects", "about", "comments"];
 const DOCK_APPS: AppId[] = ["about", "projects"];
@@ -30,6 +30,7 @@ export default function Phone() {
   const lang = useOS((s) => s.lang);
 
   const wpId = useOS((s) => s.wallpaper);
+  const setWallpaper = useOS((s) => s.setWallpaper);
   const wp = getWallpaper(wpId);
   const dark = wp.dark;
   const top = topWindow(windows);
@@ -45,6 +46,7 @@ export default function Phone() {
       <div className="relative z-20 flex items-center justify-between px-6 pt-3 text-[13px] font-semibold">
         <Clock light={dark} dark={!dark} />
         <div className="flex items-center gap-2">
+          <select aria-label={lang === "uz" ? "Fon" : "Wallpaper"} value={wp.id} onChange={e => setWallpaper(e.target.value)} className="max-w-[100px] rounded-md bg-black/25 px-1 py-1 text-[11px] text-white"><option disabled value="">{lang === "uz" ? "Fon" : "Wallpaper"}</option>{wallpapers.map(w => <option key={w.id} value={w.id} className="bg-slate-900">{w.name[lang]}</option>)}</select>
           <LangSwitch dark={!dark} />
           <span className={`text-[11px] ${dark ? "text-white/70" : "text-slate-500"}`}>▮▮▮</span>
         </div>
