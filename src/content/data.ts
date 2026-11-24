@@ -4,31 +4,27 @@ export type L = Record<Lang, string>;
 export const profile = {
   name: "Shohjahon Bekchanov",
   role: {
-    uz: "Front-end dasturchi",
-    en: "Front-end Developer",
+    uz: "Full-stack dasturchi",
+    en: "Full-Stack Developer",
   } as L,
   location: { uz: "Xiva, Xorazm, O'zbekiston", en: "Khiva, Khorezm, Uzbekistan" } as L,
   bio: {
     uz: [
-      "Men hozir front-end development yo'nalishida o'qib, o'rganib va amaliy loyihalar orqali tajriba to'plab kelayotgan dasturchiman.",
-      "Web yaratish menga shunchaki kod yozishdan ko'ra ko'proq yoqadi. G'oyani o'ylab topish, uni dizayn qilish va oxirida ishlaydigan loyihaga aylantirish jarayoni men uchun qiziq.",
-      "Shuningdek, Telegram botlar yaratish bilan ham shug'ullanaman. Botlar orqali turli g'oyalarni avtomatlashtirish va foydali funksiyalarni amalda sinab ko'rish menga yangi tajriba beradi.",
-      "Hozircha yo'limning boshidaman va hali o'rganadigan narsalarim ko'p. Har bir yangi loyiha men uchun yangi bilim va tajriba. Xatolardan o'rganib, keyingi loyihalarimni avvalgilaridan yaxshiroq qilishga harakat qilaman.",
-      "Asosiy e'tiborim front-end development, zamonaviy interfeyslar va foydalanuvchiga qulay web loyihalar yaratishga qaratilgan.",
+      "Men zamonaviy veb-saytlar, veb-ilovalar, Telegram botlar, CRM tizimlari va SaaS platformalarini yaratishga yo'naltirilgan full-stack dasturchiman.",
+      "G'oyalarni amaliy raqamli mahsulotlarga aylantirishda qulay dizayn, funksional dasturlash, ma'lumotlar bazalari va AI integratsiyalariga e'tibor beraman.",
+      "Doimiy ravishda bilim va tajribamni oshirib, bizneslar va individual mijozlar uchun foydali yechimlar yarataman.",
     ],
     en: [
-      "I'm a developer currently studying front-end development and gaining experience by building real projects.",
-      "I enjoy making things for the web more than just writing code. Coming up with an idea, designing it and turning it into something that actually works — that whole process is what interests me.",
-      "I also build Telegram bots. Automating ideas through bots and testing useful features in practice keeps teaching me something new.",
-      "I'm still at the beginning of the road and there's a lot left to learn. Every new project is new knowledge for me. I learn from my mistakes and try to make each project better than the last.",
-      "My main focus is front-end development, modern interfaces and web projects that feel easy to use.",
+      "I'm a Full-Stack Developer focused on building modern websites, web applications, Telegram bots, CRM systems, and SaaS platforms.",
+      "I combine clean design, functional development, databases, and AI integration to turn ideas into practical digital products.",
+      "I continuously develop my skills while building useful solutions for businesses and individuals.",
     ],
   } as Record<Lang, string[]>,
 
   facts: [
     {
       key: { uz: "Hozir", en: "Currently" } as L,
-      value: { uz: "Front-end yo'nalishida o'qiyapman va ishlayapman", en: "Learning & developing in front-end" } as L,
+      value: { uz: "Full-stack yo'nalishida o'qiyapman va ishlayapman", en: "Learning & developing in full-stack" } as L,
     },
     {
       key: { uz: "Shuningdek", en: "Also" } as L,
@@ -41,8 +37,8 @@ export const profile = {
     {
       key: { uz: "Yo'nalish", en: "Focus" } as L,
       value: {
-        uz: "Front-end · Web Development · UI · Telegram Bots",
-        en: "Front-end · Web Development · UI · Telegram Bots",
+        uz: "Full-stack · Web Apps · CRM · SaaS · Telegram Bots · AI",
+        en: "Full-stack · Web Apps · CRM · SaaS · Telegram Bots · AI",
       } as L,
     },
   ],
