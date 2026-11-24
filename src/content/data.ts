@@ -13,17 +13,13 @@ export const profile = {
       "Salom! Men Shohjahon Bekchanov, O'zbekistonning Xiva shahridan bo'lgan full-stack yo'nalishidagi dasturchiman. Texnologiyalar, dizayn va yangi raqamli mahsulotlar yaratishga qiziqaman.",
       "Dasturlashda g'oyani shakllantirishdan boshlab, interfeys dizayni, front-end, back-end va ma'lumotlar bazasigacha bo'lgan jarayonlar bilan shug'ullanaman. Zamonaviy veb-saytlar, landing page'lar, Telegram botlar, Mini App'lar, CRM tizimlari va SaaS platformalarini yarataman.",
       "Loyihalarimda sodda va tushunarli interfeys, moslashuvchan dizayn hamda amaliy funksionallikka e'tibor beraman. AI integratsiyasi, avtomatlashtirish va interaktiv veb-tajribalar ham qiziqishlarim qatoriga kiradi.",
-      "Dasturlashdan tashqari kino, seriallar, psixologiya va dizaynga qiziqaman. Mustaqil o'rganishni, yangi g'oyalarni sinab ko'rishni va muammolarga ijodiy yechim topishni yoqtiraman.",
       "Hozir bilim va tajribamni oshirish, shaxsiy loyihalarimni rivojlantirish va xalqaro mijozlar bilan ishlash ustida harakat qilyapman. Fiverr orqali ham freelance xizmatlarimni taklif qilaman.",
-      "Maqsadim — odamlar va bizneslar uchun foydali, sifatli va foydalanishga qulay raqamli mahsulotlar yaratish.",
     ],
     en: [
       "Hi! I'm Shohjahon Bekchanov, a developer based in Khiva, Uzbekistan, focused on full-stack development. I'm interested in technology, design, and building new digital products.",
       "I enjoy the entire development process, from shaping an idea and designing its interface to working on the front end, back end, and database. I build modern websites, landing pages, Telegram bots, Mini Apps, CRM systems, and SaaS platforms.",
       "My projects emphasize clear interfaces, responsive design, and practical functionality. I'm also interested in AI integration, automation, and interactive web experiences.",
-      "Outside of programming, I enjoy films, television series, psychology, and design. I like learning independently, experimenting with new ideas, and finding creative solutions to problems.",
       "I'm currently developing my skills, improving my personal projects, and working toward collaborating with international clients. I also offer freelance services on Fiverr.",
-      "My goal is to build useful, well-designed, and accessible digital products for people and businesses.",
     ],
   } as Record<Lang, string[]>,
 
