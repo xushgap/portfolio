@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { profile } from "@/content/data";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
 
-const title = `${profile.name} — ${profile.role.uz}`;
-const description = profile.bio.uz[0];
+const title = `${SITE_NAME} — ${profile.name} | Full-Stack Developer`;
+const description = SITE_DESCRIPTION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
   keywords: [
+    "ShoxjahonOS",
+    "Shoxjahon OS",
+    "Shoxjahon Bekchanov",
     "Shohjahon Bekchanov",
+    "Full-Stack Developer",
+    "AI Engineering",
     "front-end dasturchi",
     "frontend developer",
     "Telegram bot",
@@ -26,12 +31,14 @@ export const metadata: Metadata = {
     locale: "uz_UZ",
     alternateLocale: "en_US",
     url: SITE_URL,
-    siteName: profile.name,
+    siteName: SITE_NAME,
     title,
     description,
   },
   twitter: { card: "summary_large_image", title, description },
   robots: { index: true, follow: true },
+  applicationName: SITE_NAME,
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }] },
 };
 

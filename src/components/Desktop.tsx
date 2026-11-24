@@ -222,7 +222,7 @@ export default function Desktop() {
         }`}
       >
         <button onClick={closeAll} className="text-[13px] font-semibold tracking-tight hover:opacity-70">
-          {profile.name}
+          ShoxjahonOS
         </button>
         <span className={`hidden text-[12px] sm:inline ${dark ? "text-white/45" : "text-slate-500"}`}>
           {profile.role[lang]}

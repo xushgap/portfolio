@@ -1,5 +1,3 @@
-/**
- * Saytning to'liq manzili. Vercel'ga chiqargandan keyin loyiha sozlamalarida
- * NEXT_PUBLIC_SITE_URL o'zgaruvchisini o'z domeningizga qo'ying.
- */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shohjahon.vercel.app").replace(/\/$/, "");
+export const SITE_URL = "https://shoxjahonos.vercel.app";
+export const SITE_NAME = "ShoxjahonOS";
+export const SITE_DESCRIPTION = "ShoxjahonOS — Shohjahon Bekchanovning portfolio sayti. Full-stack dasturlash, veb-saytlar, Telegram botlar, CRM, SaaS va AI integratsiyasi.";

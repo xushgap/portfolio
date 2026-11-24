@@ -1,3 +1,4 @@
+import { SITE_NAME } from "@/lib/site";
 import { profile, projects } from "@/content/data";
 
 /**
@@ -10,9 +11,10 @@ export default function SeoContent() {
   return (
     <div className="sr-only">
       <h1>
-        {profile.name} — {profile.role.uz} / {profile.role.en}
+        {SITE_NAME} — {profile.name} — {profile.role.uz} / {profile.role.en}
       </h1>
       <p>{profile.location.uz}</p>
+      <nav aria-label="Portfolio"><a href="/about">Men haqimda</a> <a href="/projects">Loyihalar</a> <a href="/cv">CV</a> <a href="/comments">Izohlar</a> <a href="/order">Buyurtma berish</a></nav>
 
       <section>
         <h2>Men haqimda / About</h2>
@@ -35,9 +37,7 @@ export default function SeoContent() {
         <h2>Loyihalar / Projects</h2>
         {projects.map((p) => (
           <article key={p.slug}>
-            <h3>
-              {p.name} ({p.year})
-            </h3>
+            <h3><a href={`/projects/${p.slug}`}>{p.name}</a> ({p.year})</h3>
             <p>{p.summary.uz}</p>
             <p>{p.summary.en}</p>
             <p>Stack: {p.stack.join(", ")}</p>

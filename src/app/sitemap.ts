@@ -3,10 +3,9 @@ import { projects } from "@/content/data";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/projects", "/comments", "/order", ...projects.map((p) => `/projects/${p.slug}`)];
+  const routes = ["", "/about", "/cv", "/projects", "/comments", "/order", ...projects.map((p) => `/projects/${p.slug}`)];
   return routes.map((r) => ({
     url: `${SITE_URL}${r}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: r === "" ? 1 : 0.7,
   }));

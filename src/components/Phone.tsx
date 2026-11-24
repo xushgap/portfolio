@@ -57,7 +57,7 @@ export default function Phone() {
       {/* home screen */}
       <div className="relative z-10 flex h-[calc(100%-3rem)] flex-col px-6 pt-8">
         <div className="mb-8 text-center">
-          <p className="text-[19px] font-semibold tracking-tight">{profile.name}</p>
+          <p className="text-[19px] font-semibold tracking-tight">ShoxjahonOS</p>
           <p className={`text-[13px] ${dark ? "text-white/50" : "text-slate-500"}`}>{profile.role[lang]}</p>
         </div>
 
