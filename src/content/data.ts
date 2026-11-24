@@ -239,20 +239,6 @@ export const projects: Project[] = [
   },
 ];
 
-// Hazil bo'lim — o'zingizga moslab o'zgartiring yoki butunlay o'chirib tashlang
-export const trashItems: Record<Lang, string[]> = {
-  uz: [
-    "Birinchi saytim — faqat <table> teglaridan iborat edi",
-    "\"Ertaga albatta boshlayman\" rejasi",
-    "Tugallanmagan pet-project'lar papkasi",
-  ],
-  en: [
-    "My first website — built entirely out of <table> tags",
-    "The \"I'll definitely start tomorrow\" plan",
-    "A folder of unfinished pet projects",
-  ],
-};
-
 export const ui = {
   contact: { uz: "Bog'lanish", en: "Get in touch" } as L,
   contactNote: {
@@ -262,10 +248,6 @@ export const ui = {
   stack: { uz: "Texnologiyalar", en: "Stack" } as L,
   sourceCode: { uz: "Kodi", en: "Source" } as L,
   files: { uz: "ta loyiha", en: "projects" } as L,
-  trashNote: {
-    uz: "Amalga oshmagan g'oyalar. Har biridan biror narsa o'rgandim.",
-    en: "Ideas that didn't make it. I learned something from each one.",
-  } as L,
   hint: {
     uz: "Papkani oching, oynalarni suring",
     en: "Open a folder, drag the windows",

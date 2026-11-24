@@ -1,6 +1,6 @@
 "use client";
 
-import { profile, projects, trashItems, ui } from "@/content/data";
+import { profile, projects, ui } from "@/content/data";
 import type { AppId } from "@/lib/os";
 import { useOS } from "@/lib/os";
 import { AppIcon, MarkdownIcon } from "@/components/icons";
@@ -158,26 +158,6 @@ function ProjectView({ slug }: { slug: string }) {
   );
 }
 
-/* ---------- Trash ---------- */
-
-function Trash() {
-  const lang = useOS((s) => s.lang);
-  return (
-    <div className="space-y-4">
-      <H>{lang === "uz" ? "Savat" : "Trash"}</H>
-      <Para>{ui.trashNote[lang]}</Para>
-      <ul className="space-y-2">
-        {trashItems[lang].map((t) => (
-          <li key={t} className="flex items-center gap-3 rounded-lg bg-slate-50 px-3.5 py-2.5 text-[13px] text-slate-500">
-            <span className="text-slate-300">✕</span>
-            <span className="line-through decoration-slate-300">{t}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 /* ---------- registry ---------- */
 
 export function titleFor(id: AppId, lang: "uz" | "en"): string {
@@ -187,7 +167,6 @@ export function titleFor(id: AppId, lang: "uz" | "en"): string {
   }
   if (id === "about") return lang === "uz" ? "Men-haqimda.md" : "About.md";
   if (id === "projects") return lang === "uz" ? "Loyihalar" : "Projects";
-  if (id === "trash") return lang === "uz" ? "Savat" : "Trash";
   return id;
 }
 
@@ -195,7 +174,6 @@ export function AppBody({ id }: { id: AppId }) {
   if (id.startsWith("project:")) return <ProjectView slug={id.slice(8)} />;
   if (id === "about") return <About />;
   if (id === "projects") return <ProjectsFolder />;
-  if (id === "trash") return <Trash />;
   return null;
 }
 

@@ -10,7 +10,6 @@ export function generateStaticParams() {
     { slug: [] },
     { slug: ["about"] },
     { slug: ["projects"] },
-    { slug: ["trash"] },
     ...projects.map((p) => ({ slug: ["projects", p.slug] })),
   ];
 }

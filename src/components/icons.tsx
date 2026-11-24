@@ -34,21 +34,7 @@ export function MarkdownIcon({ className }: P) {
   );
 }
 
-export function TrashIcon({ className }: P) {
-  return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden>
-      <path d="M12 14h24l-2.2 26a4 4 0 0 1-4 3.6H18.2a4 4 0 0 1-4-3.6L12 14Z" fill="#aab3bf" />
-      <path d="M12 14h24l-.6 7H12.6L12 14Z" fill="#c8cfd8" />
-      <rect x="9" y="9" width="30" height="4.5" rx="2.25" fill="#8a94a1" />
-      <rect x="19" y="6" width="10" height="4" rx="2" fill="#8a94a1" />
-      <rect x="19" y="24" width="2.6" height="13" rx="1.3" fill="#8a94a1" />
-      <rect x="26.4" y="24" width="2.6" height="13" rx="1.3" fill="#8a94a1" />
-    </svg>
-  );
-}
-
 export function AppIcon({ id, className }: { id: AppId; className?: string }) {
   if (id === "projects") return <FolderIcon className={className} />;
-  if (id === "trash") return <TrashIcon className={className} />;
   return <MarkdownIcon className={className} />;
 }

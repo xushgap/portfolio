@@ -20,7 +20,7 @@ Deyarli hamma matn bitta faylda:
 
 | Fayl | Nima uchun |
 |---|---|
-| `src/content/data.ts` | Ism, bio, faktlar, loyihalar, kontaktlar, "Savat" matni |
+| `src/content/data.ts` | Ism, bio, faktlar, loyihalar, kontaktlar |
 | `src/content/wallpapers.ts` | Fon variantlari |
 | `src/lib/site.ts` | Sayt domeni (SEO uchun) |
 
@@ -58,7 +58,6 @@ Route avtomatik yaratiladi, sitemap ham o'zi yangilanadi.
 | `/about` | About oynasi |
 | `/projects` | Loyihalar papkasi |
 | `/projects/:slug` | Bitta loyiha |
-| `/trash` | Savat |
 
 - Barcha route'lar `src/app/[[...slug]]/page.tsx` catch-all orqali, build vaqtida **statik** generatsiya qilinadi
 - To'g'ridan-to'g'ri `/about` ga kirilsa — desktop chiqadi va oyna allaqachon ochiq (deep link)
