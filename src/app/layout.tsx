@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, description },
   robots: { index: true, follow: true },
   applicationName: SITE_NAME,
-  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  verification: { google: "QL1vUDrB5e9hdNT9j2wfpbyvA6dlSlSx_mKcLWeBgDU" },
   icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }] },
 };
 
