@@ -78,7 +78,7 @@ export const useOS = create<OSState>()(
     (set, get) => ({
       windows: [],
       topZ: 10,
-      lang: "uz",
+      lang: "en",
       wallpaper: defaultWallpaper,
       theme: "light",
       iconPos: {},

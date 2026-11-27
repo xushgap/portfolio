@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name }],
   openGraph: {
     type: "website",
-    locale: "uz_UZ",
-    alternateLocale: "en_US",
+    locale: "en_US",
+    alternateLocale: "uz_UZ",
     url: SITE_URL,
     siteName: SITE_NAME,
     title,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uz">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

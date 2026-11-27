@@ -26,12 +26,12 @@ export function generateMetadata({ params }: Props): Metadata {
   if (s.length > 2 || (s.length === 2 && (s[0] !== "projects" || !projects.some(p => p.slug === s[1]))) || (s.length === 1 && !["about","projects","comments","order"].includes(s[0]))) return { title: "404", robots: { index: false, follow: false } };
   if (s[0] === "projects" && s[1]) {
     const p = projects.find((x) => x.slug === s[1]);
-    if (p) return { ...canonical, title: `${p.name} — ${SITE_NAME}`, description: p.summary.uz, openGraph: { url, title: `${p.name} — ${SITE_NAME}`, description: p.summary.uz, siteName: SITE_NAME } };
+    if (p) return { ...canonical, title: `${p.name} — ${SITE_NAME}`, description: p.summary.en, openGraph: { url, title: `${p.name} — ${SITE_NAME}`, description: p.summary.en, siteName: SITE_NAME } };
   }
-  if (s[0] === "projects") return { ...canonical, title: `Loyihalar — ${SITE_NAME}`, description: "Men ishlagan loyihalar." };
-  if (s[0] === "order") return { ...canonical, title: `Buyurtma berish — ${SITE_NAME}`, description: "Veb-sayt, Telegram bot, CRM va boshqa xizmatlar uchun loyiha so‘rovi." };
-  if (s[0] === "comments") return { ...canonical, title: `Izohlar — ${SITE_NAME}`, description: "Portfolio haqida izoh qoldiring." };
-  if (s[0] === "about") return { ...canonical, title: `Men haqimda — ${SITE_NAME}`, description: profile.bio.uz[0] };
+  if (s[0] === "projects") return { ...canonical, title: `Projects — ${SITE_NAME}`, description: "Projects I have worked on." };
+  if (s[0] === "order") return { ...canonical, title: `Order a Project — ${SITE_NAME}`, description: "Request a website, Telegram bot, CRM, or other digital service." };
+  if (s[0] === "comments") return { ...canonical, title: `Comments — ${SITE_NAME}`, description: "Leave feedback about the portfolio." };
+  if (s[0] === "about") return { ...canonical, title: `About — ${SITE_NAME}`, description: profile.bio.en[0] };
   return { ...canonical, title: base, description: SITE_DESCRIPTION };
 }
 

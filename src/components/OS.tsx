@@ -23,6 +23,11 @@ export default function OS() {
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const theme = useOS(s => s.theme);
+  const lang = useOS(s => s.lang);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const windows = useOS((s) => s.windows);
   const open = useOS((s) => s.open);
